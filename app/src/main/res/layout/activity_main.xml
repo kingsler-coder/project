@@ -7,38 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Toolbar layout -->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:background="@drawable/toolbar_bg_01"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/n_toolbar_height">
 
-<RelativeLayout
-    android:id="@+id/toolbarRl"
-    android:background="@drawable/toolbar_bg_01"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/n_toolbar_height">
-    
-    <TextView
-        android:id="@+id/toolbarTitleTv"
-        style="@style/TextAppearance.Material3.TitleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textColor="@color/white"
-        android:layout_centerInParent="true"/>
+        <!-- This is toolbarTitleTv (referenced in Kotlin) -->
+        <TextView
+            android:id="@+id/toolbarTitleTv"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 
-</RelativeLayout>
-<!--FrameLayout: To show fragments-->
+    <!-- FrameLayout: For fragment container -->
     <FrameLayout
         android:id="@+id/fragmentsfl"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbarRl"
-        android:layout_above="@+id/bottomNavigationView"/>
+        android:layout_above="@+id/bottomNavigationView" />
 
-
+    <!-- This is bottomNavigationView (referenced in Kotlin) -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
-
-
-
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
+        android:background="?android:attr/windowBackground"
+        app:itemIconTint="@color/selector"
+        app:itemTextColor="@color/selector" />
 </RelativeLayout>
